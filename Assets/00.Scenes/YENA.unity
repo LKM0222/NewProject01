@@ -631,6 +631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67974595e84f8c842b7a929122aa7c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRigidbody2D: {fileID: 0}
   speed: 8
 --- !u!61 &1228982317
 BoxCollider2D:
@@ -728,7 +729,7 @@ SpriteRenderer:
   m_Size: {x: 1.65, y: 2.11}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1228982320
