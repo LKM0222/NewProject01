@@ -34,6 +34,7 @@ public class PlayerMoving : MonoBehaviour
         // 플레이어의 RigidBody2D의 velocity(속도) 값에 newVelocity를 대입해 플레이어 이동
         playerRigidbody2D.velocity = newVelocity;
 
+        // 37 ~ 57번 라인은 애니메이션을 위한 코드. 추후 삭제 예정(변수 및 start 메서드 포함)
         // 키보드의 입력이 있다면
         if (xInput != 0 || yInput != 0)
         {
