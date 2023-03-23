@@ -17,7 +17,7 @@ public class CameraManager : MonoBehaviour
     {
         if (target.gameObject != null)
         {
-            this.transform.position = new Vector3(target.transform.position.x, target.transform.position.y + 1, target.transform.position.z - 10);
+            this.transform.position = new Vector3(target.transform.position.x, target.transform.position.y + 1, this.transform.position.z);
         }
     }
 }

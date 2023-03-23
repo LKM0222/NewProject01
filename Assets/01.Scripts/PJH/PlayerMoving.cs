@@ -21,8 +21,8 @@ public class PlayerMoving : MonoBehaviour
     void Update()
     {
         // 방향키 입력 인식
-        float xInput = Input.GetAxis("Horizontal");
-        float yInput = Input.GetAxis("Vertical");
+        float xInput = Input.GetAxisRaw("Horizontal");
+        float yInput = Input.GetAxisRaw("Vertical");
 
         // 방향키와 속도를 곱한 값만큼 움직여줄 변수
         float xSpeed = xInput * speed;
