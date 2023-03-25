@@ -1,3 +1,7 @@
+// 최종 수정 날짜: 2023.03.26
+// 스크립트 작성자: 박준희
+// 핵심 기능: 플레이어 이동에 따른 카메라 이동
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
