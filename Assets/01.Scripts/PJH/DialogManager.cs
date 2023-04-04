@@ -1,6 +1,6 @@
-// 최종 수정 날짜: 2023.03.26
+// 최종 수정 날짜: 2023.04.02
 // 스크립트 작성자: 박준희
-// 핵심 기능: 대화 시스템
+// 핵심 기능: 대화 시스템, 음영처리, 플레이어 이동 변수 제한
 // 참고 사이트: https://make-my-jazz.tistory.com/27
 
 using System.Collections;
@@ -48,6 +48,8 @@ public class DialogManager : MonoBehaviour
     {
         GameObject.Find("Canvas").transform.Find("DialogSystem").gameObject.SetActive(flag); //Canvas 아래 DialogSystem을 찾아서 활성화 시켜줌
         isDialogue = flag;
+        // PlayerController의 moveFlag 변수를 현재 대화가 진행중인 flag의 반대값으로 설정(대화중이면 => 움직이지 못함, 대화중이지 않으면 => 움직일 수 있음)
+        GameObject.Find("Player").GetComponent<PlayerController>().moveFlag = !flag;
     }
 
     private void NextDialogue()
@@ -61,32 +63,30 @@ public class DialogManager : MonoBehaviour
         CharacterName2.text = dialogue[count].RightCharacterName;
 
         // 대사를 읽어들인 다음, 캐릭터 이름 아래 표시되는 BottomBar 오브젝트를 제어하기 위해서 캐릭터의 이름이 없다면(=> 대화 할 차례가 아니라면) 비활성화 시켜줌.
+        // 대사를 하고 있지 않은 캐릭터는 color 값을 조정하여 음영처리를 구현함.
         if (dialogue[count].LeftCharacterName == "")
         {
-            Debug.Log("GGGGG");
             GameObject.Find("Left_Character_Name").transform.Find("BottomBar").gameObject.SetActive(false);
+            CharacterImage1.color = new Color32(150, 150, 150, 255);
         }
         else
         {
             GameObject.Find("Left_Character_Name").transform.Find("BottomBar").gameObject.SetActive(true);
-
+            CharacterImage1.color = new Color32(255, 255, 255, 255);
         }
 
         if (dialogue[count].RightCharacterName == "")
         {
             GameObject.Find("Right_Character_Name").transform.Find("BottomBar").gameObject.SetActive(false);
+            CharacterImage2.color = new Color32(150, 150, 150, 255);
         }
         else
         {
             GameObject.Find("Right_Character_Name").transform.Find("BottomBar").gameObject.SetActive(true);
+            CharacterImage2.color = new Color32(255, 255, 255, 255);
 
         }
         count++;
-
-    }
-
-    void start()
-    {
 
     }
 
@@ -96,7 +96,7 @@ public class DialogManager : MonoBehaviour
         // Z키를 누를 때마다 대사가 진행. isDialogue는 다른 스크립트에서 ShowDialogue 메서드에 접근하면서 값이 설정됨.
         if (isDialogue)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
             {
                 // 현재 진행 중인 대화 index가 대화의 마지막 index를 넘지 않았다면 대화를 계속 진행
                 if (count < dialogue.Length) NextDialogue();
