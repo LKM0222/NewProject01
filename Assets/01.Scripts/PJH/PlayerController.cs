@@ -1,6 +1,6 @@
 // 최종 수정 날짜: 2023.04.05
 // 스크립트 작성자: 박준희
-// 핵심 기능: 플레이어 이동, 대화시 플레이어 이동 제한, 레이캐스트
+// 핵심 기능: 플레이어 이동, 대화 시작, 대화시 플레이어 이동 제한, 레이캐스트, SortingLayer 설정,
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +15,9 @@ public class PlayerController : MonoBehaviour
     public bool moveFlag = true;
     // RayCast를 쏘기 위한 플레이어의 바라보는 방향 벡터
     private Vector2 playerDir;
+    // sortingOrder을 바꾸기 위한 SpriteRender 컴포넌트
     private SpriteRenderer player;
+    // Player 레이어를 레이캐스트에서 제외하기 위한 layerMask
     private int layerMask;
 
     void Start()

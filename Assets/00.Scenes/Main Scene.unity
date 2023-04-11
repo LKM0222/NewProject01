@@ -295,7 +295,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.5}
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44c1614e41efa15449c1a6fbdb4492df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1571134963}
 --- !u!1 &343597968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,9 +1542,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1571134968}
   - component: {fileID: 1571134967}
-  - component: {fileID: 1571134966}
   - component: {fileID: 1571134969}
   - component: {fileID: 1571134964}
+  - component: {fileID: 1571134966}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
