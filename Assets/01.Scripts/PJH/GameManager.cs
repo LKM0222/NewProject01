@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+using UnityEngine.UI; // UI 관련 라이브러리
+using UnityEngine.SceneManagement; // 씬 관리 관련 라이브러리
+
+public class GameManager : MonoBehaviour
+{
+    #region Singleton
+    public static GameManager instance;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    #endregion
+
+    void Start()
+    {
+
+    }
+
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Z)) Debug.Log("GGGGGGG");
+    }
+}

@@ -52,10 +52,6 @@ public class PlayerController : MonoBehaviour
             playerRigidbody2D.velocity = Vector2.zero;
         }
 
-        // Player가 바라보는 방향으로 RayCast를 발사함
-        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, playerDir, 2f, layerMask);
-        Debug.DrawRay(this.transform.position, playerDir * 2f, Color.red);
-
         // PlayerDir를 계산
         if (xInput != 0 && yInput == 0)
         {
@@ -75,6 +71,9 @@ public class PlayerController : MonoBehaviour
             else if (xInput == -1 && yInput == 1) playerDir = Vector2.up + Vector2.left;
         }
 
+        // Player가 바라보는 방향으로 RayCast를 발사함
+        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, playerDir, 2f, layerMask);
+        Debug.DrawRay(this.transform.position, playerDir * 2f, Color.red);
 
         // Ray가 collider를 지닌 오브젝트와 충돌했을 때
         if (hit.collider != null)
@@ -83,11 +82,16 @@ public class PlayerController : MonoBehaviour
             if (hit.collider.tag == "NPC")
             {
                 // C키를 눌렀을 때 대화가 시작되도록
-                if (Input.GetKeyDown(KeyCode.C))
+                if (Input.GetKeyDown(KeyCode.Z))
                 {
                     GameObject.Find("Canvas").GetComponent<DialogManager>().ShowDialogue();
                 }
             }
+        }
+
+        if (Input.GetKey(KeyCode.T))
+        {
+            Time.timeScale = 0;
         }
     }
 
