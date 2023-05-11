@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer player;
     // Player 레이어를 레이캐스트에서 제외하기 위한 layerMask
     private int layerMask;
-
     void Start()
     {
         // RigidBody2D 컴포넌트 추출
@@ -82,7 +81,7 @@ public class PlayerController : MonoBehaviour
             if (hit.collider.tag == "NPC")
             {
                 // C키를 눌렀을 때 대화가 시작되도록
-                if (Input.GetKeyDown(KeyCode.Z))
+                if (Input.GetKeyDown(KeyCode.C))
                 {
                     GameObject.Find("Canvas").GetComponent<DialogManager>().ShowDialogue();
                 }

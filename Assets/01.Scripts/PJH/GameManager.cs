@@ -30,6 +30,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Z)) Debug.Log("GGGGGGG");
+
     }
 }
